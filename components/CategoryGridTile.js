@@ -1,8 +1,10 @@
-import {Pressable, StyleSheet, Text, View} from "react-native";
+import {Platform, Pressable, StyleSheet, Text, View} from "react-native";
 
 const CategoryGridTile = ({title, color}) => {
     return (
-        <View style={styles.gridItems}>
+        /** mehema denna puluwan me style poduwe ganna habi me color tika
+         * list ekak widiyta ganna kiyala */
+        <View style={[styles.gridItems,{backgroundColor: color}]}>
             <Pressable android_ripple={{color: '#ccc'}}
                 /* android ripple effect is responsible
                  to showing the clickable effect  */
@@ -28,6 +30,15 @@ const styles = StyleSheet.create({
         shadowOpacity: '0.25',
         shadowOffset: {width: 0, height: 0},
         shadowRadius: 8,
+        //TODO using cross platform API
+        overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
+        /**
+         * meeka use kare ara animation eka border radius
+         eka overflow karana eka stop karanna
+         * habi meeka ios waladi shadow ekat hidden karanwa, etakota background
+         eka pennanne naha
+         * ewenuwata platform api use karanna puluwan apita
+         */
     }, button: {
         flex: 1,
     }, innerContainer: {
@@ -43,4 +54,4 @@ const styles = StyleSheet.create({
 });
 
 export default CategoryGridTile;
-//TODO 17:04 next start
+//TODO
