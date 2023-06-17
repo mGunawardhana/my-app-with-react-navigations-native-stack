@@ -1,20 +1,31 @@
-import { Pressable, View, Text,StyleSheet } from "react-native";
+import {Pressable, StyleSheet, Text, View} from "react-native";
 
-const CategoryGridTile = ({ title,color }) => {
-  return (
-    <View>
-      <Pressable>
-        <View>
-          <Text>{title}</Text>
+const CategoryGridTile = ({title, color}) => {
+    return (
+        <View style={styles.gridItems}>
+            <Pressable style={styles.button}>
+                <View style={styles.innerContainer}>
+                    <Text>{title}</Text>
+                </View>
+            </Pressable>
         </View>
-      </Pressable>
-    </View>
-  );
+    );
 };
 
 const styles = StyleSheet.create({
-    gridItems:{
-        flex:1,
+    gridItems: {
+        flex: 1,
+        margin: 16,
+        height: 150,
+        borderRadius: 8,
+        elevation: 4,/* we can use background (shadows) */
+    }, button: {
+        flex: 1,
+    }, innerContainer: {
+        flex: 1,
+        padding: 16,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 });
 
