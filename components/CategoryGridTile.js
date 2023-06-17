@@ -3,9 +3,12 @@ import {Pressable, StyleSheet, Text, View} from "react-native";
 const CategoryGridTile = ({title, color}) => {
     return (
         <View style={styles.gridItems}>
-            <Pressable style={styles.button}>
+            <Pressable android_ripple={{color: '#ccc'}}
+                /* android ripple effect is responsible
+                 to showing the clickable effect  */
+                       style={styles.button}>
                 <View style={styles.innerContainer}>
-                    <Text>{title}</Text>
+                    <Text style={styles.title}>{title}</Text>
                 </View>
             </Pressable>
         </View>
@@ -18,7 +21,13 @@ const styles = StyleSheet.create({
         margin: 16,
         height: 150,
         borderRadius: 8,
-        elevation: 4,/* we can use background (shadows) */
+        elevation: 4, /* we can use background (shadows) this one is
+        not working for ios app */
+        backgroundColor: 'white',
+        shadowColor: 'black',
+        shadowOpacity: '0.25',
+        shadowOffset: {width: 0, height: 0},
+        shadowRadius: 8,
     }, button: {
         flex: 1,
     }, innerContainer: {
@@ -26,7 +35,11 @@ const styles = StyleSheet.create({
         padding: 16,
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
 });
 
 export default CategoryGridTile;
