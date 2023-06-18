@@ -13,8 +13,23 @@ export default function App() {
     <>
       <StatusBar style="light" />
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="MealsCategories" component={CategoryScreen} />
+        <Stack.Navigator
+          /* common ewa tika screenoptions walata danna puluwan */
+          screenOptions={{
+            headerStyle: { backgroundColor: "#FE724C" },
+            headerTintColor: "#272D2F",
+            /* header eke tna font color eka denne meken */ contentStyle: {
+              backgroundColor: "#fff",
+            },
+          }}
+        >
+          <Stack.Screen
+            name="MealsCategories"
+            component={CategoryScreen}
+            options={{
+              title: "Meal Categories",
+            }}
+          />
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
         </Stack.Navigator>
       </NavigationContainer>
