@@ -1,13 +1,16 @@
-import {Text, View} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 
 const MealsOverviewScreen = () => {
-    return <View style={}>
+    return <View style={styles.container}>
         <Text>Meals Overview Screen</Text>
     </View>
 };
 
 const styles = StyleSheet.create({
-
+    container:{
+        flex:1,
+        padding:16,
+    }
 });
 
-export default MealsOverviewScreen();
+export default MealsOverviewScreen;

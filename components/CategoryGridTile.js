@@ -1,6 +1,6 @@
 import {Platform, Pressable, StyleSheet, Text, View} from "react-native";
 
-const CategoryGridTile = ({title, color}) => {
+const CategoryGridTile = ({title, color,onPress}) => {
     return (
         /** mehema denna puluwan me style poduwe ganna habi me color tika
          * list ekak widiyta ganna kiyala */
@@ -8,7 +8,9 @@ const CategoryGridTile = ({title, color}) => {
             <Pressable android_ripple={{color: '#ccc'}}
                 /* android ripple effect is responsible
                  to showing the clickable effect  */
-                       style={styles.button}>
+                       style={styles.button}
+                       onPress={onPress}
+            >
                 <View style={styles.innerContainer}>
                     <Text style={styles.title}>{title}</Text>
                 </View>
