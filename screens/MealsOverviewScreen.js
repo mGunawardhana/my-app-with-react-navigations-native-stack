@@ -5,9 +5,21 @@ import MealItem from "../components/MealItem";
 const MealsOverviewScreen = ({ route }) => {
   const { categoryId } = route.params;
   const displayMeals = MEALS.filter(
-    (mealItem) => mealItem.categoryIds.indexOf(categoryId) >= 0);
+    (mealItem) => mealItem.categoryIds.indexOf(categoryId) >= 0
+  );
+
   const renderMealItems = (itemData) => {
-    return <MealItem title={itemData.item.title} />;
+    const item = itemData.item;
+
+    const mealItemProps = {
+      title: item.title,
+      imageUrl: item.imageUrl,
+      complexity: item.complexity,
+      affordability: item.affordability,
+      duration: item.duration,
+    };
+
+    return <MealItem {...mealItemProps} />;
   };
 
   return (
