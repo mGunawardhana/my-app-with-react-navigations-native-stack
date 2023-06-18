@@ -1,4 +1,4 @@
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, StyleSheet } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetail from "../components/MealDetail";
 
@@ -12,6 +12,7 @@ const MealsDetailsScreen = ({ route }) => {
       <Text>{selectedMeal.title}</Text>
       <View>
         <MealDetail
+          textStyle={styles.detailText}
           duration={selectedMeal.duration}
           complexity={selectedMeal.complexity}
           affordability={selectedMeal.affordability}
@@ -21,4 +22,11 @@ const MealsDetailsScreen = ({ route }) => {
   );
 };
 
+const styles = StyleSheet.create({
+  detailText: {
+    color: "white",
+  },
+});
+
 export default MealsDetailsScreen;
+//TODO 1:49:35 to next start
