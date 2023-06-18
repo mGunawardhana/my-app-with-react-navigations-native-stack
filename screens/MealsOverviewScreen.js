@@ -1,6 +1,9 @@
 import {StyleSheet, Text, View} from "react-native";
 
-const MealsOverviewScreen = () => {
+const MealsOverviewScreen = ({route}) => {
+
+    const {categoryId} = route.params;
+
     return <View style={styles.container}>
         <Text>Meals Overview Screen</Text>
     </View>
