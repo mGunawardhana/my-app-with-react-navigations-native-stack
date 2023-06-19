@@ -3,17 +3,27 @@ import { MEALS } from "../data/dummy-data";
 import MealDetail from "../components/MealDetail";
 import { useLayoutEffect } from "react";
 import { Button } from "react-native";
+import IconButton from "../components/IconButton";
 const MealsDetailsScreen = ({ route, navigation }) => {
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
-  // useLayoutEffect(() => {
-  //   navigation.setOptions({
-  //     headerRight: () => {
-  //       return <Button title="Tap me" />;
-  //     },
-  //   });
-  // });
+  const headerButtonPressHandler = () => {
+    console.log("Header button pressed!");
+  };
+
+  /** meeka component eka render wenakota eka parak
+   * run weno nattam navigation eke change ekak wenakota run
+   * weno
+   */
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <IconButton onPress={headerButtonPressHandler} />;
+      },
+    });
+  }, [navigation]);
 
   return (
     <View>
