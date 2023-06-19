@@ -1,12 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet } from "react-native";
+import { Text,Button, StyleSheet } from "react-native";
 import CategoryScreen from "./screens/CategoryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealsDetailsScreen from "./screens/MealsDetailsScreen";
-import { Text } from "react-native";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -43,7 +42,8 @@ export default function App() {
             component={MealsDetailsScreen}
             options={{
               title: "Meal Details",
-              headerRight:() =><Text>In the header</Text>
+              //TODO we can use button in header like this
+              // headerRight: () => (<Button title="Tap me" />)
             }}
           />
         </Stack.Navigator>

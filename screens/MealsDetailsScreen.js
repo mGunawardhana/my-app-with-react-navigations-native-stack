@@ -1,10 +1,19 @@
 import { Text, View, Image, StyleSheet } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetail from "../components/MealDetail";
-
-const MealsDetailsScreen = ({ route }) => {
+import { useLayoutEffect } from "react";
+import { Button } from "react-native";
+const MealsDetailsScreen = ({ route, navigation }) => {
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+
+  // useLayoutEffect(() => {
+  //   navigation.setOptions({
+  //     headerRight: () => {
+  //       return <Button title="Tap me" />;
+  //     },
+  //   });
+  // });
 
   return (
     <View>
