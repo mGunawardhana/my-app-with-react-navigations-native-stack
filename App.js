@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealsDetailsScreen from "./screens/MealsDetailsScreen";
-
+import { Text } from "react-native";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -43,6 +43,7 @@ export default function App() {
             component={MealsDetailsScreen}
             options={{
               title: "Meal Details",
+              headerRight:() =><Text>In the header</Text>
             }}
           />
         </Stack.Navigator>
