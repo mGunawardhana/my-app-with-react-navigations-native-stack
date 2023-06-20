@@ -6,7 +6,7 @@ const CategoryGridTile = ({ title, color, onPress }) => {
      * list ekak widiyta ganna kiyala */
     <View style={[styles.gridItems, { backgroundColor: color }]}>
       <Pressable
-        android_ripple={{ color: "#ccc" }}
+        android_ripple={{ color: "#FFF" }}
         /* android ripple effect is responsible
                  to showing the clickable effect  */
         style={styles.button}
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     elevation: 4 /* we can use background (shadows) this one is
         not working for ios app */,
-    backgroundColor: "white",
+    backgroundColor: "#FFF",
     shadowColor: "black",
     shadowOpacity: "0.25",
     shadowOffset: { width: 0, height: 0 },

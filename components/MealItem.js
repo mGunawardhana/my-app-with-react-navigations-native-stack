@@ -19,7 +19,7 @@ const MealItem = ({
   return (
     <View style={styles.mealItem}>
       <Pressable
-        android_ripple={{ color: "#ccc" }}
+        android_ripple={{ color: "#FFF" }}
         onPress={selectMealItemHandler}
       >
         <View style={styles.innerContainer}>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     margin: 16,
     boarderRadius: 8,
     overflow: Platform.OS === "android" ? "hidden" : "visible",
-    backgroundColor: "white",
+    backgroundColor: "#FFF",
     elevation: 4,
     shadowColor: "black",
     shadowOpacity: 0.35,

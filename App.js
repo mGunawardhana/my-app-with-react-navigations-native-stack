@@ -4,7 +4,7 @@ import { Text, Button, StyleSheet } from "react-native";
 import CategoryScreen from "./screens/CategoryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import MealsOverviewScreen from "./screens/MealsOverviewScreen";
+import MealsOverviewScreen from "./screens/MealsOverviewScreen";0
 import MealsDetailsScreen from "./screens/MealsDetailsScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import FavoriteScreen from "./screens/FavoriteScreen";
@@ -17,14 +17,17 @@ const DrawerNavigator = () => {
     // Fix: Use Drawer.Navigator instead of Drawer
     <Drawer.Navigator
       screenOptions={{
-        headerStyle: { backgroundColor: "#FE724C" },
+        headerStyle: { backgroundColor: "#130f40" },
         //we can change header font color
         headerTintColor: "#FFF",
         sceneContainerStyle: { backgroundColor: "#fff" },
         //we can use drawer container styles like this
-        drawerContentStyle: { backgroundColor: "#2c3e50" },
-        //we can change inactive drawer heading color using this
-        drawerInactiveTintColor: "#FFF",
+        drawerContentStyle: { backgroundColor: "#130f40" },
+        //we can change active drawer heading color using this
+        drawerActiveTintColor: "#FFF",
+        //we can choose active background color using this
+        drawerActiveBackgroundColor: "#f39c12",
+        drawerInactiveTintColor: "#f1c40f",
       }}
     >
       <Drawer.Screen
@@ -44,8 +47,8 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
-            headerStyle: { backgroundColor: "#FE724C" },
-            headerTintColor: "#272D2F",
+            headerStyle: { backgroundColor: "#130f40" },
+            headerTintColor: "#FFF",
             contentStyle: { backgroundColor: "#fff" },
           }}
         >
@@ -54,6 +57,7 @@ export default function App() {
             component={DrawerNavigator}
             options={{
               title: "Meal Categories",
+              headerTintColor: "#FFF",
               //drawer navigator eke heading eka remove kara
               headerShown: false,
             }}
@@ -63,6 +67,7 @@ export default function App() {
             component={MealsOverviewScreen}
             options={{
               title: "Meal Overview", // Fix: Correct screen title
+              contentStyle: { headerTintColor: "#fff" },
             }}
           />
           <Stack.Screen

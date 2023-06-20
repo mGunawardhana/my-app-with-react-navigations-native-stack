@@ -43,7 +43,7 @@ const MealsDetailsScreen = ({ route, navigation }) => {
 
 const styles = StyleSheet.create({
   detailText: {
-    color: "white",
+    color: "#FFF",
   },
 });
 
