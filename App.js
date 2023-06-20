@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealsDetailsScreen from "./screens/MealsDetailsScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import FavoriteScreen from "./screens/FavoriteScreen";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator(); // Fix: Correct variable name
@@ -16,6 +17,7 @@ const DrawerNavigator = () => {
     // Fix: Use Drawer.Navigator instead of Drawer
     <Drawer.Navigator>
       <Drawer.Screen name="Categories" component={CategoryScreen} />
+      <Drawer.Screen name="Favorite" component={FavoriteScreen} />
     </Drawer.Navigator>
   );
 };
