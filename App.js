@@ -9,11 +9,11 @@ import MealsDetailsScreen from "./screens/MealsDetailsScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const Stack = createNativeStackNavigator();
-const drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator(); // Fix: Correct variable name
 
 const DrawerNavigator = () => {
   return (
-    //meken enne ara left side bar eka navigation walata adalawa
+    // Fix: Use Drawer.Navigator instead of Drawer
     <Drawer.Navigator>
       <Drawer.Screen name="Categories" component={CategoryScreen} />
     </Drawer.Navigator>
@@ -26,13 +26,10 @@ export default function App() {
       <StatusBar style="light" />
       <NavigationContainer>
         <Stack.Navigator
-          /* common ewa tika screenoptions walata danna puluwan */
           screenOptions={{
             headerStyle: { backgroundColor: "#FE724C" },
             headerTintColor: "#272D2F",
-            /* header eke tna font color eka denne meken */ contentStyle: {
-              backgroundColor: "#fff",
-            },
+            contentStyle: { backgroundColor: "#fff" },
           }}
         >
           <Stack.Screen
@@ -46,7 +43,7 @@ export default function App() {
             name="MealsOverview"
             component={MealsOverviewScreen}
             options={{
-              title: "Meal Categories",
+              title: "Meal Overview", // Fix: Correct screen title
             }}
           />
           <Stack.Screen
@@ -54,8 +51,8 @@ export default function App() {
             component={MealsDetailsScreen}
             options={{
               title: "Meal Details",
-              //TODO we can use button in header like this
-              // headerRight: () => (<Button title="Tap me" />)
+              // TODO: We can use a button in the header like this
+              // headerRight: () => <Button title="Tap me" />,
             }}
           />
         </Stack.Navigator>
@@ -70,7 +67,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    // padding: 16, // Apply padding to the container
-    // marginTop: 100, // Apply margin to the top
   },
 });
