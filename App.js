@@ -1,12 +1,24 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Text,Button, StyleSheet } from "react-native";
+import { Text, Button, StyleSheet } from "react-native";
 import CategoryScreen from "./screens/CategoryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealsDetailsScreen from "./screens/MealsDetailsScreen";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+
 const Stack = createNativeStackNavigator();
+const drawer = createDrawerNavigator();
+
+const DrawerNavigator = () => {
+  return (
+    //meken enne ara left side bar eka navigation walata adalawa
+    <Drawer.Navigator>
+      <Drawer.Screen name="Categories" component={CategoryScreen} />
+    </Drawer.Navigator>
+  );
+};
 
 export default function App() {
   return (
@@ -25,7 +37,7 @@ export default function App() {
         >
           <Stack.Screen
             name="MealsCategories"
-            component={CategoryScreen}
+            component={DrawerNavigator}
             options={{
               title: "Meal Categories",
             }}
