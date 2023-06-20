@@ -4,10 +4,12 @@ import { Text, Button, StyleSheet } from "react-native";
 import CategoryScreen from "./screens/CategoryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import MealsOverviewScreen from "./screens/MealsOverviewScreen";0
+import MealsOverviewScreen from "./screens/MealsOverviewScreen";
+0;
 import MealsDetailsScreen from "./screens/MealsDetailsScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import FavoriteScreen from "./screens/FavoriteScreen";
+import { Ionicons } from "@expo/vector-icons";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator(); // Fix: Correct variable name
@@ -33,9 +35,25 @@ const DrawerNavigator = () => {
       <Drawer.Screen
         name="Categories"
         component={CategoryScreen}
-        options={{ title: "All Categories" }}
+        options={{
+          title: "All Categories",
+          drawerIcon: ({ color, size }) => {
+            //we can use return or brackets
+            return <Ionicons name="list" size={size} color={color} />;
+          },
+        }}
       />
-      <Drawer.Screen name="Favorite" component={FavoriteScreen} />
+      <Drawer.Screen
+        name="Favorite"
+        component={FavoriteScreen}
+        options={{
+          title: "Favorites",
+          //using brackets
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="swap-horizontal" size={size} color={color} />
+          ),
+        }}
+      />
     </Drawer.Navigator>
   );
 };
