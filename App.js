@@ -15,7 +15,13 @@ const Drawer = createDrawerNavigator(); // Fix: Correct variable name
 const DrawerNavigator = () => {
   return (
     // Fix: Use Drawer.Navigator instead of Drawer
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: "#FE724C" },
+        headerTintColor: "#272D2F",
+        sceneContainerStyle: { backgroundColor: "#fff" },
+      }}
+    >
       <Drawer.Screen name="Categories" component={CategoryScreen} />
       <Drawer.Screen name="Favorite" component={FavoriteScreen} />
     </Drawer.Navigator>
@@ -39,6 +45,8 @@ export default function App() {
             component={DrawerNavigator}
             options={{
               title: "Meal Categories",
+              //drawer navigator eke heading eka remove kara
+              headerShown: false,
             }}
           />
           <Stack.Screen
