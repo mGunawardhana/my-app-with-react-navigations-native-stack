@@ -18,11 +18,20 @@ const DrawerNavigator = () => {
     <Drawer.Navigator
       screenOptions={{
         headerStyle: { backgroundColor: "#FE724C" },
-        headerTintColor: "#272D2F",
+        //we can change header font color
+        headerTintColor: "#FFF",
         sceneContainerStyle: { backgroundColor: "#fff" },
+        //we can use drawer container styles like this
+        drawerContentStyle: { backgroundColor: "#2c3e50" },
+        //we can change inactive drawer heading color using this
+        drawerInactiveTintColor: "#FFF",
       }}
     >
-      <Drawer.Screen name="Categories" component={CategoryScreen} />
+      <Drawer.Screen
+        name="Categories"
+        component={CategoryScreen}
+        options={{ title: "All Categories" }}
+      />
       <Drawer.Screen name="Favorite" component={FavoriteScreen} />
     </Drawer.Navigator>
   );
