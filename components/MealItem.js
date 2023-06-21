@@ -27,11 +27,15 @@ const MealItem = ({
             <Image source={{ uri: imageUrl }} style={styles.image} />
             <Text style={styles.title}>{title}</Text>
           </View>
-          <MealDetail duration={ duration} complexity={complexity} affordability={affordability} />
+          <MealDetail
+            duration={duration}
+            complexity={complexity}
+            affordability={affordability}
+          />
         </View>
       </Pressable>
     </View>
-  ); 
+  );
 };
 
 const styles = StyleSheet.create({

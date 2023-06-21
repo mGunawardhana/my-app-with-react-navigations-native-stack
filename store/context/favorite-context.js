@@ -1,5 +1,4 @@
-import React, { createContext } from "react";
-import FavoriteScreen from "../../screens/FavoriteScreen";
+import { createContext } from "react";
 
 export const FavoriteContext = createContext({
   ids: [],
@@ -12,3 +11,4 @@ const FavoriteContextProvider = ({ children }) => {
 };
 
 export default FavoriteContextProvider;
+//TODO 45:00 next start
