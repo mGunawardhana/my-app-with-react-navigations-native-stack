@@ -1,46 +1,38 @@
+import React from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetail from "../components/MealDetail";
-import { useContext, useLayoutEffect } from "react";
-import { Button } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../store/redux/favorite";
 import IconButton from "../components/IconButton";
-import { FavoriteContext } from "../store/context/favorite-context";
-
 
 const MealsDetailsScreen = ({ route, navigation }) => {
-  const favoriteMealsCtx = useContext(FavoriteContext);
+  const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
+  const dispatch = useDispatch();
 
   const mealId = route.params.mealId;
 
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
-  //meeken balanne tnwada kiyala id eka
-  const mealFavorite = favoriteMealsCtx.ids.includes(mealId);
+  const mealFavorite = favoriteMealIds.includes(mealId);
 
   const changeFavoriteStatusHandler = () => {
     if (mealFavorite) {
-      favoriteMealsCtx.removeFavorite(mealId);
+      dispatch(removeFavorite({ id: mealId }));
     } else {
-      favoriteMealsCtx.addFavorite(mealId);
+      dispatch(addFavorite({ id: mealId }));
     }
   };
 
-  /** meeka component eka render wenakota eka parak
-   * run weno nattam navigation eke change ekak wenakota run
-   * weno
-   */
-
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     navigation.setOptions({
-      headerRight: () => {
-        return (
-          <IconButton
-            icon={mealFavorite ? "star" : "star-outline"}
-            color="white"
-            onPress={changeFavoriteStatusHandler}
-          />
-        );
-      },
+      headerRight: () => (
+        <IconButton
+          icon={mealFavorite ? "star" : "star-outline"}
+          color="white"
+          onPress={changeFavoriteStatusHandler}
+        />
+      ),
     });
   }, [navigation, changeFavoriteStatusHandler]);
 
@@ -67,4 +59,3 @@ const styles = StyleSheet.create({
 });
 
 export default MealsDetailsScreen;
-//TODO 54:58 to next start
