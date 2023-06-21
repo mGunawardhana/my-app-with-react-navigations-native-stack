@@ -1,14 +1,23 @@
 import { Text, View, Image, StyleSheet } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetail from "../components/MealDetail";
-import { useLayoutEffect } from "react";
+import { useContext, useLayoutEffect } from "react";
 import { Button } from "react-native";
 import IconButton from "../components/IconButton";
+import { FavoriteContext } from "../store/context/favorite-context";
+import { useContext } from "react";
+
 const MealsDetailsScreen = ({ route, navigation }) => {
+  const favoriteMealsCtx = useContext(FavoriteContext);
+
   const mealId = route.params.mealId;
+
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
-  const headerButtonPressHandler = () => {
+  //meeken balanne tnwada kiyala id eka
+  const mealFavorite = favoriteMealsCtx.ids.includes(mealId);
+
+  const changeFavoriteStatusHandler = () => {
     console.log("Header button pressed!");
   };
 
@@ -20,10 +29,16 @@ const MealsDetailsScreen = ({ route, navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <IconButton icon="star" color="white" onPress={headerButtonPressHandler} />;
+        return (
+          <IconButton
+            icon={mealFavorite ? "star" : "star-outline"}
+            color="white"
+            onPress={changeFavoriteStatusHandler}
+          />
+        );
       },
     });
-  }, [navigation, headerButtonPressHandler]);
+  }, [navigation, changeFavoriteStatusHandler]);
 
   return (
     <View>
