@@ -5,7 +5,7 @@ import { useContext, useLayoutEffect } from "react";
 import { Button } from "react-native";
 import IconButton from "../components/IconButton";
 import { FavoriteContext } from "../store/context/favorite-context";
-import { useContext } from "react";
+
 
 const MealsDetailsScreen = ({ route, navigation }) => {
   const favoriteMealsCtx = useContext(FavoriteContext);
@@ -18,7 +18,11 @@ const MealsDetailsScreen = ({ route, navigation }) => {
   const mealFavorite = favoriteMealsCtx.ids.includes(mealId);
 
   const changeFavoriteStatusHandler = () => {
-    console.log("Header button pressed!");
+    if (mealFavorite) {
+      favoriteMealsCtx.removeFavorite(mealId);
+    } else {
+      favoriteMealsCtx.addFavorite(mealId);
+    }
   };
 
   /** meeka component eka render wenakota eka parak
@@ -63,4 +67,4 @@ const styles = StyleSheet.create({
 });
 
 export default MealsDetailsScreen;
-//TODO 26:04 to next start
+//TODO 54:58 to next start
