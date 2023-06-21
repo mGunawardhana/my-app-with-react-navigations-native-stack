@@ -20,7 +20,7 @@ const DrawerNavigator = () => {
       screenOptions={{
         headerStyle: { backgroundColor: "#130f40" },
         headerTintColor: "#FFF",
-        sceneContainerStyle: { backgroundColor: "#fff" },
+        sceneContainerStyle: { backgroundColor: "#3f2f25" },
         drawerContentStyle: { backgroundColor: "#130f40" },
         drawerActiveTintColor: "#FFF",
         drawerActiveBackgroundColor: "#f39c12",
@@ -61,7 +61,6 @@ export default function App() {
             screenOptions={{
               headerStyle: { backgroundColor: "#130f40" },
               headerTintColor: "#FFF",
-              contentStyle: { backgroundColor: "#fff" },
             }}
           >
             <Stack.Screen
@@ -93,11 +92,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({});

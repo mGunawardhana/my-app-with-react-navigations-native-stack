@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 export const FavoriteContext = createContext({
   ids: [],
@@ -7,8 +7,29 @@ export const FavoriteContext = createContext({
 });
 
 const FavoriteContextProvider = ({ children }) => {
-  <FavoriteContext.Provider>{children}</FavoriteContext.Provider>;
+  const [favoriteMealIds, setFavoriteMealIds] = useState([]);
+
+  const addFavorite = (id) => {
+    setFavoriteMealIds((currentIds) => [...currentIds, id]);
+  };
+
+  const removeFavorite = (id) => {
+    setFavoriteMealIds((currentIds) => {
+      return currentIds.filter((mealId) => mealId !== id);
+    });
+  };
+
+  const value = {
+    ids: favoriteMealIds,
+    addFavorite: addFavorite,
+    removeFavorite: removeFavorite,
+  };
+
+  return (
+    <FavoriteContext.Provider value={value}>
+      {children}
+    </FavoriteContext.Provider>
+  );
 };
 
 export default FavoriteContextProvider;
-//TODO 45:00 next start
